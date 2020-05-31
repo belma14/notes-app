@@ -21,8 +21,11 @@ public class Category {
     @Size(min = 10, max = 200, message = "Description must be between 10 and 200 characters")
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="noteId")
+    @OneToMany(
+            mappedBy = "category",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private Set<Note> notes;
 
     public Category() {

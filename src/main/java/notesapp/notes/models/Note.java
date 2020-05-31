@@ -22,4 +22,17 @@ public class Note {
 
     @ManyToMany(mappedBy = "notesInGenre")
     Set<Genre> genres;
+
+    public Note(long noteId, String title, String content, Category category, Set<Genre> genres) {
+        this.noteId = noteId;
+        this.title = title;
+        this.content = content;
+        this.category = category;
+        this.genres = genres;
+    }
+
+    public Note() {
+    }
+
+
 }
